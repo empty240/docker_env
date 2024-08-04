@@ -1,0 +1,32 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+      {
+        "name": "web",
+        "image": "webapp",
+        "essential": true,
+        "memory": 512,
+        "portMappings": [
+          {
+            "containerPort": 80,
+            "hostPort": 80
+          }
+        ],
+        "mountPoints": [
+          {
+            "sourceVolume": "webapp",
+            "containerPath": "/var/www"
+          }
+        ]
+      }
+    ],
+    "volumes": [
+      {
+        "name": "webapp",
+        "host": {
+          "sourcePath": "/var/app/current"
+        }
+      }
+    ]
+  }
+  
